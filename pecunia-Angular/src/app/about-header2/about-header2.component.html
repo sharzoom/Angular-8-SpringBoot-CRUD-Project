@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Saurav">
+<!-- <link href="C:\Users\Admin\Desktop\Pecnia-Project\pecunia\src\assets\css" rel="stylesheet"> -->
+<title>Responsive Registration Form</title>
+</head>
+
+<body class="bg-light">
+  <pre>
+
+    
+  </pre>
+ <div class="container" data-aos="fade-up">
+  <div class="py-5 text-center">
+    <h2>Account Registration Form</h2>
+  </div>
+ </div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+     <form #accountsForm="ngForm" (ngSubmit)="accountsUser()">
+     <div class="form-group">
+    <label for="exampleInputEmail1">FULL NAME</label>
+    <input type="text" class="form-control" name="name"  placeholder="Enter your name" [(ngModel)]='accounts.name'  required #name="ngModel"
+    [class.is-invalid]="name.invalid && name.touched"
+    >
+    <small class="text-danger" [class.d-none]="name.valid || name.untouched">FullName is required.</small> 
+    </div>
+     
+    <div class="form-group">
+    <label for="exampleInputEmail1">EMAIL ID</label>
+    <input type="email" class="form-control" name="email" placeholder="Enter your email id" aria-describedby="emailHelp" [(ngModel)]='accounts.email' required  required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+    #email="ngModel"
+    [class.is-invalid]="email.invalid && email.touched"
+    > 
+    <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id  is required.</small> 
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">ADDRESS </label>
+    <input type="text" class="form-control" name="address" placeholder="" [(ngModel)]='accounts.address' required #address="ngModel"
+    [class.is-invalid]="address.invalid && address.touched"
+    >
+    <small class="text-danger" [class.d-none]="address.valid || address.untouched">Address is required.</small>
+    
+  </div>
+  
+  <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="country">COUNTRY</label>
+            <select class="custom-select d-block w-100" name="country"  [(ngModel)]='accounts.country' required #country="ngModel"
+            [class.is-invalid]="country.invalid && country.touched"
+            >
+            <small class="text-danger" [class.d-none]="country.valid || country.untouched">Enter your Country.</small>
+              <option>India</option>
+            </select>
+           
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="state">STATE</label>
+            <select class="custom-select d-block w-100" name="state"  [(ngModel)]='accounts.state' required #state="ngModel"
+            [class.is-invalid]="state.invalid && state.touched"
+            >
+           
+              <option value="">SELECT</option>
+              <option>Assam</option>
+              <option>Andhra Pradesh</option>
+              <option>Bihar</option>
+              <option>Goa</option>
+              <option>Madhya Pradesh</option>
+              <option>Maharashtra</option>
+              <option>Rajasthan</option>
+              <option>Uttar Pradesh</option>
+              <option>Punjab</option>
+              <option>Kerala</option>
+              <option>Tamil Nadu</option>
+            </select>
+            
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="zip">PIN</label>
+            <input type="text" class="form-control" name="pin" placeholder="" [(ngModel)]='accounts.pin' required #pin="ngModel"
+            [class.is-invalid]="pin.invalid && pin.touched"
+            >
+            <small class="text-danger" [class.d-none]="pin.valid || pin.untouched">Pincode is required.</small>
+            
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="zip">AADHAR NUMBER</label>
+            <input type="text" class="form-control" name="aadhar" placeholder="" [(ngModel)]='accounts. addhar' required #addhar="ngModel"
+            [class.is-invalid]="addhar.invalid && addhar.touched"
+            >
+            <small class="text-danger" [class.d-none]="addhar.valid || addhar.untouched">Aadhar is required.</small>
+            
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="zip">PAN NUMBER</label>
+            <input type="text" class="form-control" name="pan" placeholder="" [(ngModel)]='accounts.pan' required #pan="ngModel"
+            [class.is-invalid]="pan.invalid && pan.touched"
+            >
+            <small class="text-danger" [class.d-none]="pan.valid || pan.untouched">Pancard Number is required.</small>
+            
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <label for="zip">CONTACT NUMBER</label>
+            <input type="text" class="form-control" name="contact" placeholder="" [(ngModel)]='accounts.contact' required #contact="ngModel"
+            [class.is-invalid]="contact.invalid && contact.touched"
+            >
+            <small class="text-danger" [class.d-none]="contact.valid || contact.untouched">Contact Number is required.</small>
+            
+          </div>
+
+       
+        <div class="col-md-4 mb-3">
+          <label for="country">Confirm Your Account Type</label>
+          <select class="custom-select d-block w-100" name="country"  [(ngModel)]='accounts.accounttype' required #acc="ngModel"
+          [class.is-invalid]="acc.invalid && acc.touched"
+          >
+          
+            <option>Savings Account</option>
+            <option>Current Account</option>
+            <option>FD Account</option>
+          </select>
+          
+        </div> </div>
+
+        <hr class="mb-4">
+        <button type="submit" class="btn btn-block login-btn">SUBMIT</button>
+        
+      </form>
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+   
+  </footer>
+  </div>
+  </div>
+  </div>
+  </body>
+  </html>

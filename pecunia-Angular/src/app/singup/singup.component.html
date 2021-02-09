@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login Template</title>
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  
+</head>
+<body>
+  <pre>
+  </pre>
+  <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+    <div class="container" data-aos="fade-up">
+      <div class="card login-card">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="assets/img/signup.jpg" alt="login" class="login-card-img">
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <img src="assets/img/logo.png" alt="logo" height="70px">
+              </div>
+              <p class="login-card-description">SIGN UP</p>
+              <form #Signupform="ngForm" (ngSubmit)="signupUser()">
+                <div class="form-group mb-4">
+                  <label for="username" class="sr-only">user Name</label>
+                  <input type="username" name="username"  class="form-control" placeholder="Enter your Name" [(ngModel)]='user.userName' required #username="ngModel"
+                  [class.is-invalid]="username.invalid && username.touched">
+                  <small class="text-danger" [class.d-none]="username.valid || username.untouched">UserName is required.</small>
+                </div>
+
+                  
+                     <div class="form-group">
+                       <label for="email" class="sr-only">Email</label>
+                       <input type="email" name="email" class="form-control" placeholder="Email address" [(ngModel)]='user.emailId' required pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                       #email="ngModel"
+                       [class.is-invalid]="email.invalid && email.touched"
+                       >
+                       <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required.</small>
+                     </div>
+
+                  <div class="form-group ">
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" name="password"  class="form-control" placeholder="*****" [(ngModel)]='user.password' required #password="ngModel"
+                    [class.is-invalid]="password.invalid && password.touched">
+                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required.</small>
+                  </div>
+
+                  <div class="form-group ">
+                    <label for="password1" class="sr-only">Confirm Password</label>
+                    <input type="password" name="cpassword1"  class="form-control" placeholder="Repeat your password" #cpassword="ngModel" (ngModel)="user.password" required
+                    [class.is-invalid]="cpassword.invalid && cpassword.touched">
+                    <small class="text-danger" [class.d-none]="(cpassword.value==password.value) || cpassword.untouched">Must be same as Password.</small>
+                  </div>
+                  <div class="custom-control custom-checkbox login-card-check-box">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">I agree to the terms and conditions</label>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-block login-btn ">SIGN UP</button>
+                </form>
+
+                <small class="text-danger">{{msg}}</small>
+                <p class="login-card-footer-text">Already registered? <a routerLink="/login" class="text-reset">Login here</a></p>
+
+                <nav class="login-card-footer-nav">
+                  <a href="#!">Terms of use.</a>
+                  <a href="#!">Privacy policy</a>
+                </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
